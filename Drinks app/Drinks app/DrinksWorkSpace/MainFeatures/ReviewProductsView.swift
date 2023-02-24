@@ -13,7 +13,7 @@ class ReviewCustomView: UIView {
     
     lazy var borderLine: UIView = {
         var view = UIView()
-        view.backgroundColor = UIColor(cgColor: CGColor(red: 94/265, green: 89/265, blue: 89/265, alpha: 1))
+        view.backgroundColor = UIColor(cgColor: CGColor(red: 90/265, green: 89/265, blue: 89/265, alpha: 1))
         return view
     }()
     

@@ -16,7 +16,7 @@ class CommonCollectionViewCell: UICollectionViewCell {
     
     static var reuseID = String(describing: CommonCollectionViewCell.self)
     
-    var foodImage: UIImageView! = {
+    var productImage: UIImageView! = {
         var foodImage = UIImageView()
         foodImage.contentMode = .scaleAspectFit
         foodImage.layer.cornerRadius = 40
@@ -24,7 +24,7 @@ class CommonCollectionViewCell: UICollectionViewCell {
         return foodImage
     }()
     
-    var foodName: UILabel = {
+    var productlabel: UILabel = {
         var foodName = UILabel()
         foodName.text = "Fried Rice"
         foodName.numberOfLines = 0
@@ -33,7 +33,7 @@ class CommonCollectionViewCell: UICollectionViewCell {
         return foodName
     }()
     
-    var purchaseButton: UIButton = {
+    var productBuyButton: UIButton = {
         var button = UIButton()
         button.backgroundColor = UIColor(cgColor: CGColor(red: 250/265, green: 120/265, blue:91/265, alpha: 1))
         button.setTitle("Buy now", for: .normal)
@@ -56,28 +56,28 @@ class CommonCollectionViewCell: UICollectionViewCell {
     }
     
     private func setUpSubviews() {
-        self.addSubview(foodImage)
-        self.addSubview(foodName)
-        self.addSubview(purchaseButton)
+        self.addSubview(productImage)
+        self.addSubview(productlabel)
+        self.addSubview(productBuyButton)
     }
     
     private func setUpConstraints() {
-        foodImage.snp.makeConstraints{ maker in
+        productImage.snp.makeConstraints{ maker in
             maker.centerX.equalToSuperview()
             maker.top.equalToSuperview().offset(10)
             maker.width.height.equalTo(140)
         }
         
-        foodName.snp.makeConstraints{ maker in
-            maker.top.equalTo(foodImage.snp.bottom).offset(5)
-            maker.centerX.equalTo(foodImage)
+        productlabel.snp.makeConstraints{ maker in
+            maker.top.equalTo(productImage.snp.bottom).offset(5)
+            maker.centerX.equalTo(productImage)
             maker.width.equalTo(120)
             maker.height.equalTo(50)
         }
         
-        purchaseButton.snp.makeConstraints { maker in
-            maker.top.equalTo(foodName.snp.bottom).offset(5)
-            maker.centerX.equalTo(foodName)
+        productBuyButton.snp.makeConstraints { maker in
+            maker.top.equalTo(productlabel.snp.bottom).offset(5)
+            maker.centerX.equalTo(productlabel)
             maker.width.equalTo(100)
             maker.height.equalTo(30)
         }
@@ -90,7 +90,7 @@ class CommonCollectionViewCell: UICollectionViewCell {
     
     func displayInfo(product: Drinks) {
         coctails = product
-        foodName.text = product.strDrink
-        foodImage.kf.setImage(with: URL(string: product.strDrinkThumb ?? ""))
+        productlabel.text = product.strDrink
+        productImage.kf.setImage(with: URL(string: product.strDrinkThumb ?? ""))
     }
 }
